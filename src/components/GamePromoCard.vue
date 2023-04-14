@@ -6,26 +6,48 @@ defineProps({
 </script>
 
 <template>
-  <div>
+  <div class="card">
     <img :src="promo.thumb" />
-    <div>
       <h2>
         {{ promo.title }}
       </h2>
-      <div>
-        <RouterLink :to="{ name: 'DealAbout', params: { dealID: promo.dealID } }"
+     <div class="cardInfo">  
+        <RouterLink class="details" :to="{ name: 'DealAbout', params: { dealID: promo.dealID } }"
           >Detalhes</RouterLink
         >
-        <div>
+        <div class="priceInfo">
           <div>
             <p>{{ promo.normalPrice }}</p>
             <p>{{ promo.salePrice }}</p>
           </div>
-          <div>
-            <p>{{ promo.savings }}</p>
+            <button class="badge-savings">{{ promo.savings }}</button>
           </div>
-        </div>
-      </div>
     </div>
-  </div>
+  </div>     
 </template>
+
+<style scoped>
+
+.card {
+  background-color: var(--color-primary-color);
+  border-radius: 4px;
+  display:flex;
+  flex-direction: column;
+}
+
+img {
+  width : 100%;
+  border-radius: 4px;
+}
+
+.cardInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.priceInfo{
+  display: flex;
+}
+
+
+</style>

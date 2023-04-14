@@ -15,6 +15,28 @@ a,
   transition: 0.4s;
 }
 
+.details{
+  text-decoration: none;
+  color: white;
+  background-color: var(--color-secundary-color);
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.badge-savings {
+  background-color: var(--color-tertiary-color);
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 6px;
+
+}
+
+
+p, h1, h2, h3, h4{
+  color: white
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
