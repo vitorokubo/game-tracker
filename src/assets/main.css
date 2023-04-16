@@ -3,9 +3,10 @@
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+}
 
-  font-weight: normal;
+main {
+  margin: 8px;
 }
 
 a,
@@ -15,26 +16,13 @@ a,
   transition: 0.4s;
 }
 
-.details{
-  text-decoration: none;
+p,
+h1,
+h2,
+h3,
+h4 {
   color: white;
-  background-color: var(--color-secundary-color);
-  border-radius: 4px;
-  padding: 6px;
-}
-
-.badge-savings {
-  background-color: var(--color-tertiary-color);
-  border: none;
-  color: white;
-  border-radius: 4px;
-  padding: 6px;
-
-}
-
-
-p, h1, h2, h3, h4{
-  color: white
+  line-height: 21px;
 }
 
 @media (hover: hover) {
@@ -46,10 +34,10 @@ p, h1, h2, h3, h4{
 @media (min-width: 1024px) {
   body {
     display: flex;
-    place-items: center;
   }
 
   #app {
+    min-width: 1240px;
     display: grid;
     padding: 0 2rem;
   }

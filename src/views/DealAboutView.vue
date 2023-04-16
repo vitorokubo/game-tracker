@@ -15,10 +15,13 @@ const fetchGame = async () => {
 onMounted(() => {
   fetchGame()
 })
+
+//configurar pagina de retorno seja mesma que deu inicio
 </script>
 
 <template>
-  <RouterLink to="/">Voltar</RouterLink>
+  <RouterLink to="/" replace>Voltar</RouterLink>
+
   <div>
     <p>{{ deal }}</p>
   </div>
