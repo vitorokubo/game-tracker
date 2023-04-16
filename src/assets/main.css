@@ -1,8 +1,7 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 main {
@@ -20,7 +19,8 @@ p,
 h1,
 h2,
 h3,
-h4 {
+h4,
+a {
   color: white;
   line-height: 21px;
 }
@@ -37,8 +37,6 @@ h4 {
   }
 
   #app {
-    min-width: 1240px;
     display: grid;
-    padding: 0 2rem;
   }
 }

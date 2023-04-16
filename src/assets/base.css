@@ -58,8 +58,8 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background-game);
-  line-height: 1.6;
-  font-family: Roboto;
+  line-height: 1.6rem;
+  font-family: 'Roboto';
   font-style: normal;
   font-size: 1.6rem;
   text-rendering: optimizeLegibility;

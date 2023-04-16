@@ -43,7 +43,6 @@ const savings = computed(() => {
 
 <style scoped>
 img {
-  object-fit: cover;
   overflow: hidden;
 }
 .card {
@@ -51,7 +50,7 @@ img {
   height: 180px;
   flex-direction: column;
 
-  width: 100%;
+  width: min(100%, 380px);
 
   overflow: hidden;
 
