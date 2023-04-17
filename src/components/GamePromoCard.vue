@@ -30,7 +30,7 @@ const savings = computed(() => {
         <div class="priceInfo">
           <div>
             <p class="normalPrice">$ {{ promo.normalPrice }}</p>
-            <p>$ {{ promo.salePrice }}</p>
+            <p class="descountPrice">$ {{ promo.salePrice }}</p>
           </div>
           <button class="badge-savings">
             <p>{{ savings }}</p>
@@ -44,6 +44,7 @@ const savings = computed(() => {
 <style scoped>
 img {
   overflow: hidden;
+  height: 95px;
 }
 .card {
   display: flex;
@@ -65,7 +66,6 @@ img {
 .title {
   font-size: 1.8rem;
   font-weight: 300;
-  text-transform: uppercase;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -90,18 +90,22 @@ img {
   padding: 7px 12px;
 }
 .normalPrice {
-  font-size: 1.2rem;
-  line-height: 14px;
+  font-size: 1rem;
+  line-height: 1.2rem;
   text-align: right;
   text-decoration-line: line-through;
 }
 .descountPrice {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.6rem;
 }
 
 .badge-savings {
   width: 64px;
   text-transform: uppercase;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
   font-weight: 700;
   background-color: var(--color-tertiary-color);
   border: none;
@@ -116,10 +120,37 @@ img {
   gap: 10px;
 }
 
-@media (min-width: 480) {
+@media (min-width: 480px) {
+  .card {
+    height: 250px;
+  }
+
+  img {
+    height: 147px;
+  }
   .title {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+
+  .details {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+  }
+
+  .normalPrice {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+  }
+  .descountPrice {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+  }
+
+  .badge-savings {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    width: 84px;
   }
 
   .cardInfoWrapper {

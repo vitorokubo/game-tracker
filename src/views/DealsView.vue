@@ -3,20 +3,18 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import GamePromoCard from '../components/GamePromoCard.vue'
 import LoadingTriangle from '../components/icons/LoadingTriangle.vue'
+import { onBeforeRouteLeave } from 'vue-router'
 
 const PromoList = ref([])
-const sortBy = ref('Savings')
+const sortBy = ref('descount')
 const pageNumber = ref(0)
 const tripleA = ref(1)
 const isLoaded = ref(false)
-const desc = ref(0)
 const title = ref(``)
 const storeID = ref(1)
 
-//tomar cuidado com desc, setar default props e default props do componente
-
-const fetchGames = async (sortBy, pageNumber, tripleA, desc, title) => {
-  let url = `https://www.cheapshark.com/api/1.0/deals?pageNumber=${pageNumber.value}&pageSize=12&onSale=1&AAA=${tripleA.value}&sortBy=${sortBy.value}&desc=${desc.value}${title.value}&storeID=${storeID.value}`
+const fetchGames = async (pageNumber, tripleA, title) => {
+  let url = `https://www.cheapshark.com/api/1.0/deals?pageNumber=${pageNumber.value}&pageSize=12&onSale=1&AAA=${tripleA.value}${title.value}&storeID=${storeID.value}`
   isLoaded.value = false
   try {
     const response = await axios.get(url)
@@ -32,19 +30,18 @@ const handleTitle = (e) => {
   if (e.target.value.length === 0) {
     title.value = ''
     PromoList.value = []
-    fetchGames(sortBy, pageNumber, tripleA, desc, title)
+    fetchGames(pageNumber, tripleA, title)
   } else {
     title.value = `&title=${e.target.value}`
     PromoList.value = []
-    fetchGames(sortBy, pageNumber, tripleA, desc, title)
+    fetchGames(pageNumber, tripleA, title)
   }
 }
 
 const sort = (e) => {
   switch (e.target.value) {
     case 'descount':
-      sortBy.value = 'Savings'
-      desc.value = 0
+      sortBy.value = 'descount'
       PromoList.value.sort((a, b) => {
         const aSavings = parseFloat(a.savings)
         const bSavings = parseFloat(b.savings)
@@ -67,8 +64,7 @@ const sort = (e) => {
       })
       break
     case 'higher-price':
-      sortBy.value = 'Price'
-      desc.value = 1
+      sortBy.value = 'higher-price'
       PromoList.value.sort((a, b) => {
         const aSalePrice = parseFloat(a.salePrice)
         const bSalePrice = parseFloat(b.salePrice)
@@ -82,8 +78,7 @@ const sort = (e) => {
       })
       break
     case 'lower-price':
-      sortBy.value = 'Price'
-      desc.value = 0
+      sortBy.value = 'lower-price'
       PromoList.value.sort((a, b) => {
         const aSalePrice = parseFloat(a.salePrice)
         const bSalePrice = parseFloat(b.salePrice)
@@ -97,8 +92,7 @@ const sort = (e) => {
       })
       break
     case 'title':
-      sortBy.value = 'Title'
-      desc.value = 0
+      sortBy.value = 'title'
       PromoList.value.sort((a, b) => {
         const titleA = a.title.toLowerCase()
         const titleB = b.title.toLowerCase()
@@ -125,11 +119,30 @@ const sort = (e) => {
 
 const loadMore = () => {
   pageNumber.value++
-  fetchGames(sortBy, pageNumber, tripleA, desc, title)
+  fetchGames(pageNumber, tripleA, title)
 }
 
 onMounted(() => {
-  fetchGames(sortBy, pageNumber, tripleA, desc, title)
+  const savedState = window.localStorage.getItem('PromoListState')
+  if (savedState) {
+    isLoaded.value = true
+    const parsedState = JSON.parse(savedState)
+    PromoList.value = parsedState.PromoList
+    pageNumber.value = parsedState.pageNumber
+    sortBy.value = parsedState.sortBy
+    window.localStorage.removeItem('PromoListState')
+  } else {
+    fetchGames(pageNumber, tripleA, title)
+  }
+})
+
+onBeforeRouteLeave(() => {
+  const currentState = {
+    PromoList: PromoList.value,
+    pageNumber: pageNumber.value,
+    sortBy: sortBy.value
+  }
+  window.localStorage.setItem('PromoListState', JSON.stringify(currentState))
 })
 </script>
 
@@ -141,8 +154,8 @@ onMounted(() => {
         <input type="text" @keyup.enter="handleTitle" placeholder="Procurar" />
         <div class="selectBox">
           <p>Ordenar Por:</p>
-          <select @change="sort" name="filter" id="filter">
-            <option value="descount" selected>% de Desconto</option>
+          <select @change="sort" name="filter" id="filter" v-model="sortBy">
+            <option value="descount">% de Desconto</option>
             <option value="higher-price">Maior Preço</option>
             <option value="lower-price">Meno Preço</option>
             <option value="title">Título</option>
@@ -224,6 +237,7 @@ select {
   color: #fff;
   background-color: var(--color-primary-color);
   height: 40px;
+  padding-left: 10px;
 }
 select {
   width: 100%;
@@ -245,6 +259,7 @@ button {
   background-color: var(--color-primary-color);
   width: min(100%, 380px);
   grid-column: 1 / span 3;
+  margin-block: 30px;
 }
 
 .exception {

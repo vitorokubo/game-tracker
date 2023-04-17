@@ -20,7 +20,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <RouterLink to="/" replace>Voltar</RouterLink>
+  <RouterLink to="/">Voltar</RouterLink>
 
   <div>
     <p>{{ deal }}</p>
