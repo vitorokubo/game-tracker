@@ -1,35 +1,52 @@
-# game-tracker
+# Game-Tracker
 
-This template should help get you started developing with Vue 3 in Vite.
+O projeto consiste em uma single page application que consulta as ofertas de jogos via API do [cheap shark](https://apidocs.cheapshark.com/) e expõe os jogos em promoção. O projeto pode ser consultado em produção neste [link](https://game-tracker-vokubo.onrender.com).
 
-## Recommended IDE Setup
+## Tecnologias utilizadas e justificativas
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+|      Abrangência       | Utilizado  |
+| :--------------------: | ---------- |
+|       Linguagem        | Javascript |
+|         Estilo         | CSS       |
+|       Requisição       | Axious     |
+| _Framework (opcional)_ | Vite+Vue   |
 
-## Customize configuration
+O framework escolhido para o projeto foi o Vite + Vue, sendo o Vite um bundler que permite criar um ambiente de desenvolvimento estruturado simples e rápido. Já com o Vue pois temos um framework de fácil estruturação, versátil e bem documentado.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Como Roda a Aplicação
 
-## Project Setup
+### Requisitos
 
-```sh
-yarn
-```
+-   Node.js 16.16.0
 
-### Compile and Hot-Reload for Development
+### `yarn install`
 
-```sh
-yarn dev
-```
+No diretório da aplicação rode o seguinte comando acima para instalar as dependências
 
-### Compile and Minify for Production
+### `yarn dev`
 
-```sh
-yarn build
-```
+E o comando acima para rodar a aplicação na URL http://127.0.0.1:5173/
 
-### Lint with [ESLint](https://eslint.org/)
+## Funcionalidades
 
-```sh
-yarn lint
-```
+<ul>
+<li>Design responsivo com quebras em 480px, 768px e 1024px.</li>
+<li> Ordenamento das promoções em % Desconto, Maior Preço, Menor Preço e Título .</li>
+<li>Busca por título nas ofertas.</li>
+<li>Router implementado</li>
+<li>Lista de promoções são salvas em cache para que na volta da navegação o usuário não se perca caso visite outras paginas da aplicação a partir da principal.</li>
+</ul>
+
+## Funcionalidades em construção
+
+<ul>
+<li> Tela de detalhes da promoção onde haverá informações específicas da promoção e do jogo.</li>
+<li> Adicionar testes com Jest.</li>
+</ul>
+
+#### Ideias futuras para o projeto
+<ol>
+<li> Storybook dos componentes.</li>
+<li>Transformar em uma PWA.</li>
+<li> Converter o projeto em SSR com NUXT.</li>
+</ol>
