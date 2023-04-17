@@ -205,7 +205,6 @@ h2 {
   width: min(100%, 380px);
   gap: 10px;
 }
-
 .selectBox {
   display: flex;
   flex-direction: column;
@@ -237,7 +236,7 @@ select {
   color: #fff;
   background-color: var(--color-primary-color);
   height: 40px;
-  padding-left: 10px;
+  padding-inline: 10px;
 }
 select {
   width: 100%;
@@ -266,6 +265,7 @@ button {
   padding: 10px;
   text-align: center;
 }
+
 @media (min-width: 768px) {
   .gameList {
     margin: auto 20%;
@@ -278,6 +278,25 @@ button {
     max-width: 1200px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  nav {
+    padding: 0 8px;
+  }
+  .navWrapper {
+    max-width: 1200px;
+    margin: 20px auto;
+    align-items: baseline;
+  }
+
+  .filterBox {
+    width: 100%;
+  }
+  input {
+    flex: none;
+    width: 380px;
+  }
+  .selectBox {
+    flex: none;
   }
 }
 </style>

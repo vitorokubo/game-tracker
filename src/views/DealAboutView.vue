@@ -1,28 +1,41 @@
 <script setup>
 import axios from 'axios'
-import { ref, onMounted } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
-const deal = ref({})
+const deal = reactive({ game: {} })
 const route = useRoute()
 const dealID = ref(route.params.dealID)
 
 const fetchGame = async () => {
-  const response = await axios.get(`https://www.cheapshark.com/api/1.0/deals?id=${dealID.value}`)
-  deal.value = response.data
+  try {
+    const response = await axios.get(`https://www.cheapshark.com/api/1.0/deals?id=${dealID.value}`)
+    deal.game = response.data
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 onMounted(() => {
   fetchGame()
 })
-
-//configurar pagina de retorno seja mesma que deu inicio
 </script>
 
 <template>
   <RouterLink to="/">Voltar</RouterLink>
 
-  <div>
-    <p>{{ deal }}</p>
-  </div>
+  <main>
+    <img :src="deal.game?.gameInfo?.thumb" />
+    <div class="card">
+      <p>{{ deal.game.gameInfo }}</p>
+    </div>
+  </main>
 </template>
+
+<style scoped>
+.card {
+  display: flex;
+  width: 320px;
+  background-color: var(--color-primary-color);
+}
+</style>
