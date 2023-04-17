@@ -266,6 +266,13 @@ button {
   text-align: center;
 }
 
+@media (min-width: 480px) {
+  h2 {
+    font-size: 3rem;
+    line-height: 4.2rem;
+  }
+}
+
 @media (min-width: 768px) {
   .gameList {
     margin: auto 20%;
@@ -284,18 +291,36 @@ button {
   }
   .navWrapper {
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 45px auto;
     align-items: baseline;
+    gap: 30px;
   }
 
   .filterBox {
     width: 100%;
+    align-items: center;
   }
   input {
     flex: none;
     width: 380px;
   }
+
+  input,
+  select {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+  }
+  select {
+    width: auto;
+  }
+
+  p {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+  }
   .selectBox {
+    gap: 20px;
+    flex-direction: row;
     flex: none;
   }
 }
