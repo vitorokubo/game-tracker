@@ -220,6 +220,7 @@ h2 {
   flex: 0.8;
 }
 p {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin-block: 8px;
   font-size: 1rem;
   font-weight: 700;
@@ -243,6 +244,7 @@ select {
   background-color: var(--color-primary-color);
   height: 40px;
   padding-inline: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 select {
   width: 100%;
@@ -266,6 +268,7 @@ button {
   width: min(100%, 380px);
   grid-column: 1 / span 3;
   margin-block: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .exception {
