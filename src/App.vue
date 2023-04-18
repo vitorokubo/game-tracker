@@ -49,12 +49,12 @@ import { RouterView } from 'vue-router'
 header {
   display: flex;
   background-color: var(--color-primary-color);
+  position: sticky;
+  top: 0;
 }
-
 .headerWrapper {
   margin: 9px auto;
 }
-
 .logoLink {
   display: flex;
   align-items: center;
@@ -65,10 +65,9 @@ header {
 footer {
   display: flex;
   min-height: 300px;
-
+  width: 100%;
   background-color: var(--color-primary-color);
 }
-
 .footerWrapper {
   max-width: 1200px;
   display: flex;
@@ -78,7 +77,6 @@ footer {
   gap: 14px;
   margin: 20px 10%;
 }
-
 .footerLogo {
   margin: 0 auto;
 }
@@ -122,6 +120,7 @@ ul {
     font-size: 1.4rem;
     line-height: 2.5rem;
     text-align: left;
+    margin-top: -30px;
   }
   ul {
     flex-direction: row;

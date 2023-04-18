@@ -139,7 +139,6 @@ onMounted(() => {
   } else {
     fetchGames(pageNumber, tripleA, title)
   }
-  console.log(PromoList.value)
 })
 
 onBeforeRouteLeave(() => {
@@ -205,7 +204,6 @@ h2 {
   line-height: 2.1rem;
   font-weight: 300;
 }
-
 .filterBox {
   display: flex;
   align-items: flex-end;
@@ -227,7 +225,6 @@ p {
   font-weight: 700;
   line-height: 1.2rem;
 }
-
 .gameList {
   display: flex;
   flex-direction: column;
@@ -310,18 +307,20 @@ button {
     width: 100%;
     align-items: center;
   }
-  input {
-    flex: none;
-    width: 380px;
-  }
 
   input,
   select {
     font-size: 1.8rem;
     line-height: 2.1rem;
   }
+
   select {
     width: auto;
+  }
+
+  input {
+    flex: none;
+    width: 380px;
   }
 
   p {

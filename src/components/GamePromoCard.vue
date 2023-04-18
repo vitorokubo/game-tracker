@@ -89,14 +89,12 @@ img {
   overflow: hidden;
   white-space: nowrap;
 }
-
 .cardInfo {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 1.6rem;
 }
-
 .details {
   width: fit-content;
   text-transform: uppercase;
@@ -132,7 +130,6 @@ img {
   border-radius: 4px;
   padding-block: 7px;
 }
-
 .priceInfo {
   display: flex;
   align-items: center;
@@ -151,7 +148,6 @@ img {
     font-size: 2.4rem;
     line-height: 2.8rem;
   }
-
   .details {
     font-size: 1.8rem;
     line-height: 2.1rem;
@@ -165,13 +161,11 @@ img {
     font-size: 1.8rem;
     line-height: 2.1rem;
   }
-
   .badge-savings {
     font-size: 1.8rem;
     line-height: 2.1rem;
     width: 84px;
   }
-
   .cardInfoWrapper {
     padding: 7px 16px 16px;
   }
