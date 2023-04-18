@@ -67,6 +67,7 @@ onMounted(() => {
                 </div>
               </div>
             </div>
+              <button><a href="'https://www.cheapshark.com/redirect?dealID=' + dealID">Ir para promoção</a></button>
           </div>
         </div>
       </div>
@@ -129,6 +130,8 @@ main {
 
 .cardInfoWrapper {
   padding: 7px 16px 16px;
+  display: flex;
+flex-direction: column;
 }
 
 .grade {
@@ -160,6 +163,7 @@ main {
   align-items: flex-end;
 }
 .rating {
+  margin-top: 5px;
   width: fit-content;
   padding: 6px;
   font-size: 1.4rem;
@@ -175,6 +179,21 @@ main {
   justify-content: flex-end;
   gap: 10px;
 }
+
+button{
+  margin-top: 10px;
+  margin-inline: auto;
+  padding: 7px;
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1.6rem;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  background-color: var(--color-secundary-color);
+  width:50%;
+}
+
 
 @media (min-width: 480px) {
   .title {
