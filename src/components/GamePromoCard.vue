@@ -1,36 +1,55 @@
 <script setup>
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import semImagem from '../assets/sem-imagem.jpg'
 
 const props = defineProps({
   promo: {
     type: Object,
-    default: () => ({ savings: 0 })
+    default: () => ({
+      thumb: semImagem,
+      title: 'Título indisponível',
+      dealID: '---',
+      normalPrice: '---',
+      salePrice: '---',
+      savings: '---'
+    }),
+    validator: (value) => {
+      return typeof value === 'object'
+    }
   }
 })
-//definir props default
 
 const savings = computed(() => {
-  let value = parseInt(props.promo.savings)
-  return value === 100 ? 'Gratis' : -value + '%'
+  if (props.promo.savings) {
+    let value = parseInt(props.promo.savings)
+    return value === 100 ? 'Gratis' : -value + '%'
+  } else {
+    return '---'
+  }
 })
 </script>
 
 <template>
   <div class="card">
-    <img :src="promo.thumb" />
+    <img v-if="promo.thumb" :src="promo.thumb" />
+    <img v-else src="../assets/sem-imagem.jpg" />
     <div class="cardInfoWrapper">
       <h2 class="title">
-        {{ promo.title }}
+        {{ promo.title ? promo.title : 'Título indisponível' }}
       </h2>
       <div class="cardInfo">
-        <RouterLink class="details" :to="{ name: 'DealAbout', params: { dealID: promo.dealID } }"
+        <RouterLink
+          v-if="promo.dealID"
+          class="details"
+          :to="{ name: 'DealAbout', params: { dealID: promo.dealID } }"
           ><p>Detalhes</p></RouterLink
         >
+        <a v-else class="details" href="#"><p>Detalhes</p></a>
         <div class="priceInfo">
           <div>
-            <p class="normalPrice">$ {{ promo.normalPrice }}</p>
-            <p class="descountPrice">$ {{ promo.salePrice }}</p>
+            <p class="normalPrice">$ {{ promo.normalPrice ? promo.normalPrice : '---' }}</p>
+            <p class="descountPrice">$ {{ promo.salePrice ? promo.salePrice : '---' }}</p>
           </div>
           <button class="badge-savings">
             <p>{{ savings }}</p>

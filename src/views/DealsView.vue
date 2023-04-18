@@ -12,16 +12,21 @@ const tripleA = ref(1)
 const isLoaded = ref(false)
 const title = ref(``)
 const storeID = ref(1)
+const errorMessage = ref(false)
 
-const fetchGames = async (pageNumber, tripleA, title) => {
+const fetchGames = async (pageNumber = 0, tripleA = 1, title = '') => {
   let url = `https://www.cheapshark.com/api/1.0/deals?pageNumber=${pageNumber.value}&pageSize=12&onSale=1&AAA=${tripleA.value}${title.value}&storeID=${storeID.value}`
   isLoaded.value = false
   try {
     const response = await axios.get(url)
-    response.data.forEach((promo) => PromoList.value.push(promo))
+    response.data.forEach((promo) => {
+      if (typeof promo === 'object') {
+        PromoList.value.push(promo)
+      }
+    })
     isLoaded.value = true
   } catch (error) {
-    console.log(error)
+    errorMessage.value = true
   }
 }
 
@@ -134,6 +139,7 @@ onMounted(() => {
   } else {
     fetchGames(pageNumber, tripleA, title)
   }
+  console.log(PromoList.value)
 })
 
 onBeforeRouteLeave(() => {
@@ -172,6 +178,9 @@ onBeforeRouteLeave(() => {
         :key="promo.storeID + promo.dealID"
       />
       <button class="loadMore" @click="loadMore">Carregar mais</button>
+    </div>
+    <div class="exception" v-if="errorMessage === true">
+      <h2>Houve algum problema na chama à API.</h2>
     </div>
     <div class="exception" v-if="PromoList.length === 0 && isLoaded">
       <h2>Resultado não encontrado para essa busca, tente outro titulo...</h2>
@@ -240,6 +249,7 @@ select {
 }
 select {
   width: 100%;
+  font-family: 'Robot', sans-serif;
 }
 input {
   flex: 1.2;
@@ -255,7 +265,7 @@ button {
   border-radius: 8px;
   border: none;
   color: #fff;
-  background-color: var(--color-primary-color);
+  background-color: var(--color-secundary-color);
   width: min(100%, 380px);
   grid-column: 1 / span 3;
   margin-block: 30px;
