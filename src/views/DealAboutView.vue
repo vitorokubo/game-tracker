@@ -67,7 +67,7 @@ onMounted(() => {
                 </div>
               </div>
             </div>
-              <button><a href="'https://www.cheapshark.com/redirect?dealID=' + dealID">Ir para promoção</a></button>
+              <button><a :href="'https://www.cheapshark.com/redirect?dealID=' + dealID">Ir para promoção</a></button>
           </div>
         </div>
       </div>
