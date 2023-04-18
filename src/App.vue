@@ -70,6 +70,7 @@ footer {
 }
 
 .footerWrapper {
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -112,9 +113,6 @@ ul {
 }
 
 @media (min-width: 768px) {
-  .headerWrapper {
-    margin: 9px 10%;
-  }
   .footerWrapper {
     margin-block: 50px;
     align-items: flex-start;
@@ -129,6 +127,16 @@ ul {
     flex-direction: row;
     justify-content: flex-start;
     gap: 46px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headerWrapper {
+    display: flex;
+    width: 1200px;
+  }
+  .footerWrapper {
+    margin: 20px auto;
   }
 }
 </style>
