@@ -19,7 +19,7 @@ O framework escolhido para o projeto foi o Vite + Vue, sendo o Vite um bundler q
 
 -   Node.js 16.16.0
 
-### `yarn install`
+### `yarn`
 
 No diretório da aplicação rode o seguinte comando acima para instalar as dependências
 
@@ -31,22 +31,31 @@ E o comando acima para rodar a aplicação na URL http://127.0.0.1:5173/
 
 <ul>
 <li>Design responsivo com quebras em 480px, 768px e 1024px.</li>
-<li> Ordenamento das promoções em % Desconto, Maior Preço, Menor Preço e Título .</li>
+<li>Ordenamento das promoções em % Desconto, Maior Preço, Menor Preço e Título .</li>
 <li>Busca por título nas ofertas.</li>
 <li>Router implementado</li>
 <li>Lista de promoções são salvas em cache para que na volta da navegação o usuário não se perca caso visite outras paginas da aplicação a partir da principal.</li>
+<li>Configurado testes com Vitest</li>
 </ul>
 
-## Funcionalidades em construção
+## Telas Produzidas
 
+<div float="left">
+    <div>
+        <p>Design Mobile</p>
+        <img src="./src/assets/screen/Screen-478px.png"  />
+    </div>
+    <div>
+        <p>Design Desktop</p>
+        <img src="./src/assets/screen/Screen-1024px.png"  />
+    </div>
+        <p>Telas com varias promoções carregadas</p>
+        <img src="./src/assets/screen/Screen-GamesLoaded-1024px.png"  />
+    </div>
+
+## Ideias futuras para o projeto
 <ul>
-<li> Tela de detalhes da promoção onde haverá informações específicas da promoção e do jogo.</li>
-<li> Adicionar testes com Jest.</li>
-</ul>
-
-#### Ideias futuras para o projeto
-<ol>
 <li> Storybook dos componentes.</li>
 <li>Transformar em uma PWA.</li>
 <li> Converter o projeto em SSR com NUXT.</li>
-</ol>
+</ul>
