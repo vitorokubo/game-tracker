@@ -119,7 +119,7 @@ ul {
 
   p {
     font-size: 1.4rem;
-    line-height: 2.5rem;
+    line-height: 1.6rem;
     text-align: left;
     margin-top: -30px;
   }
@@ -137,6 +137,12 @@ ul {
   }
   .footerWrapper {
     margin: 20px auto;
+  }
+  p {
+    line-height: 2.5rem;
+  }
+  ul {
+    margin-bottom: 20px;
   }
 }
 </style>

@@ -25,7 +25,7 @@ onMounted(() => {
 <template>
   <div class="wrapper">
     <nav>
-      <RouterLink to="/">Voltar</RouterLink>
+      <RouterLink to="/"> {{ '< Voltar' }} </RouterLink>
     </nav>
     <main>
       <p v-if="errorMessage">Houve algum erro na chamada à API.</p>
@@ -67,7 +67,9 @@ onMounted(() => {
                 </div>
               </div>
             </div>
-              <button><a :href="'https://www.cheapshark.com/redirect?dealID=' + dealID">Ir para promoção</a></button>
+            <button>
+              <a :href="'https://www.cheapshark.com/redirect?dealID=' + dealID">Ir para promoção</a>
+            </button>
           </div>
         </div>
       </div>
@@ -86,11 +88,9 @@ onMounted(() => {
 
 nav {
   border-radius: 8px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-color: var(--color-secundary-color);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 6px;
-  margin-left: -320px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-left: -330px;
 }
 
 main {
@@ -132,7 +132,7 @@ main {
 .cardInfoWrapper {
   padding: 7px 16px 16px;
   display: flex;
-flex-direction: column;
+  flex-direction: column;
 }
 
 .grade {
@@ -181,7 +181,7 @@ flex-direction: column;
   gap: 10px;
 }
 
-button{
+button {
   margin-top: 10px;
   margin-inline: auto;
   padding: 7px;
@@ -192,9 +192,8 @@ button{
   border: none;
   color: #fff;
   background-color: var(--color-secundary-color);
-  width:50%;
+  width: 50%;
 }
-
 
 @media (min-width: 480px) {
   .title {
