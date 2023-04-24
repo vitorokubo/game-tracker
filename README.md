@@ -13,7 +13,7 @@ O projeto consiste em uma single page application que consulta as ofertas de jog
 
 O framework escolhido para o projeto foi o Vite + Vue, sendo o Vite um bundler que permite criar um ambiente de desenvolvimento estruturado simples e rápido. Já com o Vue pois temos um framework de fácil estruturação, versátil e bem documentado.
 
-## Como Roda a Aplicação
+## Como Rodar a Aplicação
 
 ### Requisitos
 
@@ -30,12 +30,12 @@ E o comando acima para rodar a aplicação na URL http://127.0.0.1:5173/
 ## Funcionalidades
 
 <ul>
-<li>Design responsivo com quebras em 480px, 768px e 1024px.</li>
-<li>Ordenamento das promoções em % Desconto, Maior Preço, Menor Preço e Título .</li>
-<li>Busca por título nas ofertas.</li>
-<li>Router implementado</li>
-<li>Lista de promoções são salvas em cache para que na volta da navegação o usuário não se perca caso visite outras paginas da aplicação a partir da principal.</li>
-<li>Configurado testes com Vitest</li>
+    <li>Design responsivo com quebras em 480px, 768px e 1024px.</li>
+    <li>Ordenamento das promoções em % Desconto, Maior Preço, Menor Preço e Título .</li>
+    <li>Busca por título nas ofertas.</li>
+    <li>Router implementado</li>
+    <li>Lista de promoções são salvas em cache para que na volta da navegação o usuário não se perca caso visite outras paginas da aplicação a partir da principal.</li>
+    <li>Configurado testes com Vitest</li>
 </ul>
 
 ## Telas Produzidas
@@ -54,8 +54,9 @@ E o comando acima para rodar a aplicação na URL http://127.0.0.1:5173/
     </div>
 
 ## Ideias futuras para o projeto
+
 <ul>
-<li> Storybook dos componentes.</li>
-<li>Transformar em uma PWA.</li>
-<li> Converter o projeto em SSR com NUXT.</li>
+    <li> Storybook dos componentes.</li>
+    <li>Transformar em uma PWA.</li>
+    <li> Converter o projeto em SSR com NUXT.</li>
 </ul>
