@@ -1,8 +1,11 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
+//components
 import GamePromoCard from '../components/GamePromoCard.vue'
 import LoadingTriangle from '../components/icons/LoadingTriangle.vue'
+
+//libs and functions
+import axios from 'axios'
+import { ref, onMounted, reactive } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 
 const PromoList = ref([])
@@ -12,13 +15,18 @@ const tripleA = ref(1)
 const isLoaded = ref(false)
 const title = ref(``)
 const storeID = ref(1)
-const errorMessage = ref(false)
+const errorMessage = reactive({ value: '' })
 
 const fetchGames = async (pageNumber = 0, tripleA = 1, title = '') => {
   let url = `https://www.cheapshark.com/api/1.0/deals?pageNumber=${pageNumber.value}&pageSize=12&onSale=1&AAA=${tripleA.value}${title.value}&storeID=${storeID.value}`
   isLoaded.value = false
   try {
     const response = await axios.get(url)
+    if (response.status !== 200) {
+      errorMessage.value = `Houve o seguinte erro no retorno da API:${
+        response.statusText || response.status
+      }`
+    }
     response.data.forEach((promo) => {
       if (typeof promo === 'object') {
         PromoList.value.push(promo)
@@ -26,7 +34,7 @@ const fetchGames = async (pageNumber = 0, tripleA = 1, title = '') => {
     })
     isLoaded.value = true
   } catch (error) {
-    errorMessage.value = true
+    errorMessage.value = `Houve o seguinte erro: ${error}`
   }
 }
 
@@ -123,6 +131,10 @@ const sort = (e) => {
 }
 
 const loadMore = () => {
+  if (errorMessage.value) {
+    errorMessage.value = ''
+    fetchGames(pageNumber, tripleA, title)
+  }
   pageNumber.value++
   fetchGames(pageNumber, tripleA, title)
 }
@@ -176,10 +188,12 @@ onBeforeRouteLeave(() => {
         :promo="promo"
         :key="promo.storeID + promo.dealID"
       />
-      <button class="loadMore" @click="loadMore">Carregar mais</button>
+      <button class="loadMore" @click="loadMore">
+        {{ errorMessage.value ? 'Carregar novamente' : 'Carregar mais' }}
+      </button>
     </div>
-    <div class="exception" v-if="errorMessage === true">
-      <h2>Houve algum problema na chama à API.</h2>
+    <div class="exception" v-if="errorMessage.value">
+      <h2>{{ errorMessage.value }}</h2>
     </div>
     <div class="exception" v-if="PromoList.length === 0 && isLoaded">
       <h2>Resultado não encontrado para essa busca, tente outro titulo...</h2>

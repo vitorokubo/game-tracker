@@ -1,24 +1,39 @@
 <script setup>
+//libs and functions
 import axios from 'axios'
-import { reactive, ref, onMounted } from 'vue'
+import { reactive, ref, onMounted, computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
 const deal = reactive({ game: {} })
 const route = useRoute()
 const dealID = ref(route.params.dealID)
-const errorMessage = ref('')
+const errorMessage = reactive({ value: '' })
 
 const fetchGame = async () => {
   try {
     const response = await axios.get(`https://www.cheapshark.com/api/1.0/deals?id=${dealID.value}`)
+    if (response.status !== 200) {
+      errorMessage.value = `Houve o seguinte erro no retorno da API :${
+        response.statusText || response.status
+      }`
+    }
     deal.game = response.data
   } catch (error) {
-    errorMessage.value = error
+    errorMessage.value = `Houve o seguinte erro:${error}`
   }
 }
 
 onMounted(() => {
   fetchGame()
+})
+
+const imgUrlOk = computed(() => {
+  const img = new Image()
+  img.src = deal?.game?.gameInfo?.thumb
+  if (img.src !== null) {
+    return img.complete && img.naturalWidth !== 0
+  }
+  return false
 })
 </script>
 
@@ -28,10 +43,15 @@ onMounted(() => {
       <RouterLink to="/"> {{ '< Voltar' }} </RouterLink>
     </nav>
     <main>
-      <p v-if="errorMessage">Houve algum erro na chamada à API.</p>
+      <p v-if="errorMessage.value">{{ errorMessage.value }}</p>
       <div v-else>
         <div class="card">
-          <img :src="deal?.game?.gameInfo?.thumb" />
+          <img
+            v-if="imgUrlOk"
+            :src="deal?.game?.gameInfo?.thumb"
+            :alt="`Imagem do jogo ${deal?.game?.gameInfo?.name}`"
+          />
+          <img v-else src="../assets/sem-imagem.jpg" />
           <div class="cardInfoWrapper">
             <h2 class="title">
               {{ deal?.game?.gameInfo?.name ? deal.game.gameInfo.name : 'Título indisponível' }}
@@ -39,24 +59,23 @@ onMounted(() => {
             <div class="cardInfo">
               <div class="lowestPrice">
                 <p>Menor preço:</p>
-                <p class="grade">$ {{ deal?.game?.cheapestPrice?.price }}</p>
-                <p>
-                  {{
-                    deal?.game?.cheapestPrice?.date
-                      ? new Date(deal?.game?.cheapestPrice?.date * 1000).toLocaleDateString()
-                      : ''
-                  }}
+                <p class="grade">
+                  $
+                  {{ deal?.game?.cheapestPrice?.price ? deal?.game?.cheapestPrice?.price : '---' }}
+                </p>
+                <p v-if="deal?.game?.cheapestPrice?.date">
+                  {{ new Date(deal?.game?.cheapestPrice?.date * 1000).toLocaleDateString() }}
                 </p>
               </div>
               <div class="priceInfo">
                 <div>
-                  <p class="normalPrice">
+                  <p class="normalPrice" aria-label="Preço normal">
                     $
                     {{
                       deal?.game?.gameInfo?.retailPrice ? deal?.game?.gameInfo?.retailPrice : '---'
                     }}
                   </p>
-                  <p class="descountPrice">
+                  <p class="descountPrice" aria-label="Preço com desconto">
                     $
                     {{ deal?.game?.gameInfo?.salePrice ? deal?.game?.gameInfo?.salePrice : '---' }}
                   </p>

@@ -32,8 +32,8 @@ const savings = computed(() => {
 
 <template>
   <div class="card">
-    <img v-if="promo.thumb" :src="promo.thumb" />
-    <img v-else src="../assets/sem-imagem.jpg" />
+    <img v-if="promo?.thumb" :src="promo.thumb" :alt="`Thumbnail do jogo ${promo.title}`" />
+    <img v-else src="../assets/sem-imagem.jpg" alt="Jogo sem imagem disponível" />
     <div class="cardInfoWrapper">
       <h2 class="title">
         {{ promo.title ? promo.title : 'Título indisponível' }}
@@ -48,11 +48,15 @@ const savings = computed(() => {
         <a v-else class="details" href="#"><p>Detalhes</p></a>
         <div class="priceInfo">
           <div>
-            <p class="normalPrice">$ {{ promo.normalPrice ? promo.normalPrice : '---' }}</p>
-            <p class="descountPrice">$ {{ promo.salePrice ? promo.salePrice : '---' }}</p>
+            <p class="normalPrice" aria-label="preço normal">
+              $ {{ promo.normalPrice ? promo.normalPrice : '---' }}
+            </p>
+            <p class="descountPrice" aria-label="preço com desconto">
+              $ {{ promo.salePrice ? promo.salePrice : '---' }}
+            </p>
           </div>
           <button class="badge-savings">
-            <p>{{ savings }}</p>
+            <p aria-label="porcentagem economizada">{{ savings }}</p>
           </button>
         </div>
       </div>
