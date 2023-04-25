@@ -1,10 +1,7 @@
 <script setup>
-import axios from 'axios'
-import { computed, ref, watchEffect } from 'vue'
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import semImagem from '../assets/images/sem-imagem.jpg'
-
-const steamImg = ref('')
 
 const props = defineProps({
   promo: {
@@ -23,17 +20,6 @@ const props = defineProps({
   }
 })
 
-watchEffect(async () => {
-  const promo = await props.promo
-  let url = `https://store.steampowered.com/api/appdetails?appids=${promo.steamAppID}&key=C034C32F44BCD5114AF66675C4323778`
-  try {
-    const response = await axios.get(url)
-    steamImg.value = response[promo.steamAppID].header_image
-  } catch (error) {
-    console.log(error)
-  }
-})
-
 const savings = computed(() => {
   if (props.promo.savings) {
     let value = parseInt(props.promo.savings)
@@ -46,7 +32,7 @@ const savings = computed(() => {
 
 <template>
   <div class="card">
-    <img v-if="promo?.thumb" :src="steamImg" :alt="`Thumbnail do jogo ${promo.title}`" />
+    <img v-if="promo?.thumb" :src="promo.thumb" :alt="`Thumbnail do jogo ${promo.title}`" />
     <img v-else src="../assets/images/sem-imagem.jpg" alt="Jogo sem imagem disponível" />
     <div class="cardInfoWrapper">
       <h2 class="title">
