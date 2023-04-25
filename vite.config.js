@@ -6,7 +6,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), VitePWA({ registerType: 'autoUpdate' })],
+  plugins: [vue(), VitePWA({ registerType: 'autoUpdate', scope: '/' })],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
