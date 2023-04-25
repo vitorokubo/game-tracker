@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
-import semImagem from '../assets/sem-imagem.jpg'
+import semImagem from '../assets/images/sem-imagem.jpg'
 
 const props = defineProps({
   promo: {
@@ -33,7 +33,7 @@ const savings = computed(() => {
 <template>
   <div class="card">
     <img v-if="promo?.thumb" :src="promo.thumb" :alt="`Thumbnail do jogo ${promo.title}`" />
-    <img v-else src="../assets/sem-imagem.jpg" alt="Jogo sem imagem disponível" />
+    <img v-else src="../assets/images/sem-imagem.jpg" alt="Jogo sem imagem disponível" />
     <div class="cardInfoWrapper">
       <h2 class="title">
         {{ promo.title ? promo.title : 'Título indisponível' }}

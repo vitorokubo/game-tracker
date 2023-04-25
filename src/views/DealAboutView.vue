@@ -51,7 +51,7 @@ const imgUrlOk = computed(() => {
             :src="deal?.game?.gameInfo?.thumb"
             :alt="`Imagem do jogo ${deal?.game?.gameInfo?.name}`"
           />
-          <img v-else src="../assets/sem-imagem.jpg" />
+          <img v-else src="../assets/images/sem-imagem.jpg" />
           <div class="cardInfoWrapper">
             <h2 class="title">
               {{ deal?.game?.gameInfo?.name ? deal.game.gameInfo.name : 'Título indisponível' }}

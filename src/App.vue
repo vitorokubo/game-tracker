@@ -6,7 +6,7 @@ import { RouterView } from 'vue-router'
   <header>
     <div class="headerWrapper">
       <RouterLink class="logoLink" to="/">
-        <img src="./assets/logo.png" alt="Logo do Game-Tracker" />
+        <img src="./assets/images/logo.png" alt="Logo do Game-Tracker" />
         <h1>Game <span>Tracker</span></h1>
       </RouterLink>
     </div>
@@ -15,7 +15,7 @@ import { RouterView } from 'vue-router'
   <footer>
     <div class="footerWrapper">
       <a class="footerLogo" href="#">
-        <img src="./assets/logo.png" alt="Logo do Game-Tracker" />
+        <img src="./assets/images/logo.png" alt="Logo do Game-Tracker" />
       </a>
       <p>
         © 2021, Game Tracker Inc. Todos os direitos reservados. Nulla facilisi. Etiam sagittis

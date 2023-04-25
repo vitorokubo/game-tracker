@@ -6,6 +6,6 @@ describe('GamePromoCard', () => {
   it('renders properly', () => {
     const wrapper = mount(GamePromoCard, { props: { promo: { title: 'Hello Vitest' } } })
     expect(wrapper.text()).toContain('Hello Vitest')
-    expect(wrapper.find('img').attributes('src')).toContain('/src/assets/sem-imagem.jpg')
+    expect(wrapper.find('img').attributes('src')).toContain('/src/assets/images/sem-imagem.jpg')
   })
 })
