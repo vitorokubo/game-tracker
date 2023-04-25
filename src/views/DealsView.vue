@@ -168,7 +168,7 @@ onBeforeRouteLeave(() => {
     <div class="navWrapper">
       <h2>Ofertas</h2>
       <div class="filterBox">
-        <input type="text" @keyup.enter="handleTitle" placeholder="Procurar" />
+        <input type="text" @keyup.enter="handleTitle" @blur="handleTitle" placeholder="Procurar" />
         <div class="selectBox">
           <p>Ordenar Por:</p>
           <select @change="sort" name="filter" id="filter" v-model="sortBy">

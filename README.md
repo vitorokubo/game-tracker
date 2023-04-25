@@ -33,9 +33,10 @@ E o comando acima para rodar a aplicação na URL http://127.0.0.1:5173/
     <li>Design responsivo com quebras em 480px, 768px e 1024px.</li>
     <li>Ordenamento das promoções em % Desconto, Maior Preço, Menor Preço e Título .</li>
     <li>Busca por título nas ofertas.</li>
-    <li>Router implementado</li>
+    <li>Router implementado.</li>
     <li>Lista de promoções são salvas em cache para que na volta da navegação o usuário não se perca caso visite outras paginas da aplicação a partir da principal.</li>
-    <li>Configurado testes com Vitest</li>
+    <li>Configurado testes com Vitest.</li>
+    <li>Funciona como uma PWA.</li>
 </ul>
 
 ## Telas Produzidas
@@ -57,6 +58,5 @@ E o comando acima para rodar a aplicação na URL http://127.0.0.1:5173/
 
 <ul>
     <li> Storybook dos componentes.</li>
-    <li>Transformar em uma PWA.</li>
     <li> Converter o projeto em SSR com NUXT.</li>
 </ul>
