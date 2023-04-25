@@ -46,7 +46,7 @@ const savings = computed(() => {
 
 <template>
   <div class="card">
-    <img v-if="promo?.thumb" :src="promo.thumb" :alt="`Thumbnail do jogo ${promo.title}`" />
+    <img v-if="promo?.thumb" :src="steamImg" :alt="`Thumbnail do jogo ${promo.title}`" />
     <img v-else src="../assets/images/sem-imagem.jpg" alt="Jogo sem imagem disponível" />
     <div class="cardInfoWrapper">
       <h2 class="title">
