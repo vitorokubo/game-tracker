@@ -25,7 +25,7 @@ const props = defineProps({
 
 watchEffect(async () => {
   const promo = await props.promo
-  let url = `https://store.steampowered.com/api/appdetails?appids=${promo.steamAppID}&key=69316A1D361C06E9492E1EBE77641F0F`
+  let url = `https://store.steampowered.com/api/appdetails?appids=${promo.steamAppID}&key=C034C32F44BCD5114AF66675C4323778`
   try {
     const response = await axios.get(url)
     steamImg.value = response[promo.steamAppID].header_image
