@@ -1,62 +1,62 @@
 # Game-Tracker
 
-O projeto consiste em uma single page application que consulta as ofertas de jogos via API do [cheap shark](https://apidocs.cheapshark.com/) e expõe os jogos em promoção. O projeto pode ser consultado em produção neste [link](https://game-tracker-vokubo.onrender.com).
+The project consists of a single page application that queries game offers via the [Cheap Shark API](https://apidocs.cheapshark.com/) and exposes games on sale. The project can be accessed in production at this [link](https://game-tracker-vokubo.onrender.com).The project was developed for a front-end developer job application process, and its publication was allowed by the recruiter.
 
-## Tecnologias utilizadas e justificativas
+## Technologies Used and Justifications
 
-|      Abrangência       | Utilizado  |
-| :--------------------: | ---------- |
-|       Linguagem        | Javascript |
-|         Estilo         | CSS       |
-|       Requisição       | Axious     |
-| _Framework (opcional)_ | Vite+Vue   |
+|     Scope     |  Used   |
+| :-----------: | :-----: |
+|   Language    | Javascript |
+|    Styling    |   CSS   |
+|   Requests    |  Axios  |
+| Framework (optional) | Vite+Vue |
 
-O framework escolhido para o projeto foi o Vite + Vue, sendo o Vite um bundler que permite criar um ambiente de desenvolvimento estruturado simples e rápido. Já com o Vue pois temos um framework de fácil estruturação, versátil e bem documentado.
+The chosen framework for the project was Vite+Vue, with Vite being a bundler that allows for a simple and fast structured development environment. Vue was chosen because it is a versatile, well-documented and easy-to-structure framework.
 
-## Como Rodar a Aplicação
+## How to Run the Application
 
-### Requisitos
+### Requirements
 
--   Node.js 16.16.0
+- Node.js 16.16.0
 
 ### `yarn`
 
-No diretório da aplicação rode o seguinte comando acima para instalar as dependências
+In the application directory, run the following command above to install the dependencies
 
 ### `yarn dev`
 
-E o comando acima para rodar a aplicação na URL http://127.0.0.1:5173/
+And the above command to run the application at the URL http://127.0.0.1:5173/
 
-## Funcionalidades
+## Features
 
 <ul>
-    <li>Design responsivo com quebras em 480px, 768px e 1024px.</li>
-    <li>Ordenamento das promoções em % Desconto, Maior Preço, Menor Preço e Título .</li>
-    <li>Busca por título nas ofertas.</li>
-    <li>Router implementado.</li>
-    <li>Lista de promoções são salvas em cache para que na volta da navegação o usuário não se perca caso visite outras paginas da aplicação a partir da principal.</li>
-    <li>Configurado testes com Vitest.</li>
-    <li>Funciona como uma PWA.</li>
+    <li>Responsive design with breakpoints at 480px, 768px and 1024px.</li>
+    <li>Sorting of promotions by % Discount, Highest Price, Lowest Price and Title.</li>
+    <li>Search by title in offers.</li>
+    <li>Implemented Router.</li>
+    <li>List of promotions are saved in cache so that upon returning to the navigation, the user does not get lost if they visit other pages of the application from the main one.</li>
+    <li>Configured tests with Vitest.</li>
+    <li>Functions as a PWA.</li>
 </ul>
 
-## Telas Produzidas
+## Screenshots
 
 <div float="left">
     <div>
-        <p>Design Mobile</p>
+        <p>Mobile Design</p>
         <img src="./src/assets/screen/Screen-478px.png"  />
     </div>
     <div>
-        <p>Design Desktop</p>
+        <p>Desktop Design</p>
         <img src="./src/assets/screen/Screen-1024px.png"  />
     </div>
-        <p>Telas com varias promoções carregadas</p>
+        <p>Screens with various promotions loaded</p>
         <img src="./src/assets/screen/Screen-GamesLoaded-1024px.png"  />
     </div>
 
-## Ideias futuras para o projeto
+## Future Ideas for the Project
 
 <ul>
-    <li> Storybook dos componentes.</li>
-    <li> Converter o projeto em SSR com NUXT.</li>
+    <li> Storybook of components.</li>
+    <li> Convert the project to SSR with NUXT.</li>
 </ul>
