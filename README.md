@@ -4,12 +4,12 @@ The project consists of a single page application that queries game offers via t
 
 ## Technologies Used and Justifications
 
-|     Scope     |  Used   |
-| :-----------: | :-----: |
-|   Language    | Javascript |
-|    Styling    |   CSS   |
-|   Requests    |  Axios  |
-| Framework (optional) | Vite+Vue |
+|        Scope         |    Used    |
+| :------------------: | :--------: |
+|       Language       | Javascript |
+|       Styling        |    CSS     |
+|       Requests       |   Axios    |
+| Framework (optional) |  Vite+Vue  |
 
 The chosen framework for the project was Vite+Vue, with Vite being a bundler that allows for a simple and fast structured development environment. Vue was chosen because it is a versatile, well-documented and easy-to-structure framework.
 
